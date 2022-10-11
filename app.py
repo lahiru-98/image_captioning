@@ -4,14 +4,24 @@ from flask import Flask , request
 from pathlib import Path
 import os 
 from flask import send_from_directory     
+import tensorflow as tf
+
+
 
 
 app = Flask(__name__)
 
+def load_model():
+    model = tf.keras.models.load_model('best_model.h5')
+    return "Model loaded"
+    
+
+
 
 @app.route('/')
 def index():
-    return "Your App is Working!!!"
+    text = load_model()
+    return "Your App is Working!!!" + text
 
 @app.route('/favicon.ico') 
 def favicon(): 

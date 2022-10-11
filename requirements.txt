@@ -2,4 +2,5 @@ gunicorn
 flask
 pandas
 pathlib
+tensorflow
 
